@@ -14,6 +14,14 @@ class Iterm2Zmodem < Formula
 
   def caveats
     <<~EOS
+    
+      Make Sure You Add correct profiles !!!!!!!!!!!!!!!
+      Make Sure You Add correct profiles !!!!!!!!!!!!!!!
+      Make Sure You Add correct profiles !!!!!!!!!!!!!!!
+      Make Sure You Add correct profiles !!!!!!!!!!!!!!!
+      Make Sure You Add correct profiles !!!!!!!!!!!!!!!
+      Make Sure You Add correct profiles !!!!!!!!!!!!!!!
+      
       Create triggers under Profiles -> Advanced:
 
         Regular expression: rz waiting to receive.\*\*B0100
