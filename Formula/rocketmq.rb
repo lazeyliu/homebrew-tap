@@ -101,7 +101,9 @@ class Rocketmq < Formula
     
 
     export JAVA_HOME
-    export ROCKETMQ_HOME   
+    export ROCKETMQ_HOME 
+    echo !!! jAVA_HOME=${JAVA_HOME}
+    echo !!! ROCKETMQ_HOME=${ROCKETMQ_HOME}
     
     
     pid=jps | grep NamesrvStartup | awk '{print $1}'
