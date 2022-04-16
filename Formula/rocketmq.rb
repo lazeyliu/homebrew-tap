@@ -86,7 +86,7 @@ class Rocketmq < Formula
     if [ ! -d "${JAVA_HOME}" ]; then 
       JAVA_HOME=`/usr/libexec/java_home -V`
     fi
-    JAVA_HOME=`cat ${JAVA_HOME} |  | sed -re 's/\ /\\ /g'` 
+    JAVA_HOME=`cat ${JAVA_HOME} | sed -re 's/\ /\\ /g'` 
 
     if [ ! -d "${JAVA_HOME}" ]; then 
         JAVA_HOME_CANDIDATES=($(ps aux | grep java | grep -v 'grep java' | awk '{print $11}' | sed -n 's/\\/bin\\/java$//p')) 
@@ -102,7 +102,7 @@ class Rocketmq < Formula
 
     export JAVA_HOME
     export ROCKETMQ_HOME 
-    echo !!! jAVA_HOME=${JAVA_HOME}
+    echo !!! JAVA_HOME=${JAVA_HOME}
     echo !!! ROCKETMQ_HOME=${ROCKETMQ_HOME}
     
     
