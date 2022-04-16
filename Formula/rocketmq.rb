@@ -7,7 +7,7 @@ class Rocketmq < Formula
   url "https://archive.apache.org/dist/rocketmq/4.9.3/rocketmq-all-4.9.3-bin-release.zip"
   # sha256 "584910d50639297808dd0b86fcdfaf431efd9607009a44c6258d9a0e227748fe"
 
-  bottle :unneeded
+  # bottle :unneeded
   # depends_on "cmake" => :build
 
   def install
