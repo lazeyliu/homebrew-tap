@@ -80,6 +80,9 @@ class Rocketmq < Formula
       ROCKETMQ_HOME=`cd "$ROCKETMQ_HOME" && pwd`
       cd "$saveddir"
     fi
+    
+    Language::Java.overridable_java_home_env
+    
     # macos dmg install format
     if [ ! -d "${JAVA_HOME}" ]; then 
       JAVA_HOME=`/usr/libexec/java_home -V`
