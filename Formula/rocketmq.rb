@@ -80,9 +80,29 @@ class Rocketmq < Formula
       ROCKETMQ_HOME=`cd "$ROCKETMQ_HOME" && pwd`
       cd "$saveddir"
     fi
+
     
+    # macos dmg install format
+    if [ ! -d "${JAVA_HOME}" ]; then 
+      JAVA_HOME=`/usr/libexec/java_home -V`
+    fi
+    JAVA_HOME=`cat ${JAVA_HOME} |  | sed -re 's/\ /\\ /g'` 
+
+    if [ ! -d "${JAVA_HOME}" ]; then 
+        JAVA_HOME_CANDIDATES=($(ps aux | grep java | grep -v 'grep java' | awk '{print $11}' | sed -n 's/\\/bin\\/java$//p')) 
+        for JAVA_HOME_TEMP in ${JAVA_HOME_CANDIDATES[@]}; do 
+            echo ${JAVA_HOME_TEMP}
+            if [ -f "${JAVA_HOME_TEMP}/lib/tools.jar" ]; then 
+                JAVA_HOME=${JAVA_HOME_TEMP} 
+                break 
+            fi 
+        done 
+    fi 
     
-    Language::Java.overridable_java_home_env
+
+    export JAVA_HOME
+    export ROCKETMQ_HOME   
+    
     
     pid=jps | grep NamesrvStartup | awk '{print $1}'
     if [ ! -e "$pid" ]; then
