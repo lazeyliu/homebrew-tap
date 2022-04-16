@@ -81,12 +81,12 @@ class Rocketmq < Formula
       cd "$saveddir"
     fi
     
-    Language::Java.overridable_java_home_env
     
     # macos dmg install format
     if [ ! -d "${JAVA_HOME}" ]; then 
       JAVA_HOME=`/usr/libexec/java_home -V`
     fi
+    JAVA_HOME=`${JAVA_HOME} | sed -re 's/\ /\\ /g'`
     export ROCKETMQ_HOME
     if [ ! -d "${JAVA_HOME}" ]; then 
         JAVA_HOME_CANDIDATES=($(ps aux | grep java | grep -v 'grep java' | awk '{print $11}' | sed -n 's/\\/bin\\/java$//p')) 
